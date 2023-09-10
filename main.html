@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #numb{
+        position: absolute;
+        top:31px;
+        left: 270px;
+      }
+      #prompt{
+        position: absolute;
+        top:0px;
+        left: 50px;
+      }
+      #sub{
+        position: absolute;
+        top:31px;
+        left: 452px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <h1 id="prompt">Enter Number</h1>
+    <input type="number" id="numb">
+    <button type="button" id="sub" onclick="getInputValue();">SUBMIT</button>
+    <p id="outscreen"></p>
+    <script>
+      function getInputValue() {
+        var inputVal = document.getElementById("numb").value;
+        let pattern = "";
+        for (let i = inputVal; i >= 1; i--) {
+          for (let j = 1; j <= inputVal; j++) {
+            if (j <= i) {
+              pattern += j;
+            } else {
+              pattern += '*';
+            }
+          }
+          for (let j = inputVal; j >= 1; j--) {
+            if (j <= i) {
+              pattern += j;
+            } else {
+              pattern += '*';
+            }
+          }
+          pattern += '<br>';
+        }
+        document.getElementById("outscreen").innerHTML = pattern;
+      }
+    </script>
+
+  </body>
+</html>
